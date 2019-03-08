@@ -69,8 +69,8 @@ module XDHq
 	end
 
 	class DOM
-		def initialize()
-			@dom = XDHqDEMO::DOM.new()
+		def initialize(id)
+			@dom = XDHqDEMO::DOM.new(id)
 		end
 
 		private def unsplit(*args)
@@ -94,7 +94,9 @@ module XDHq
 		end
 	
 		def alert(message)
-			call( "Alert_1", $VOID, 1, message, 0 )
+			call( "Alert_1", $STRING, 1, message, 0 )
+		# For the return value being 'STRING' instead of 'VOID',
+		# see the 'alert' primitive in 'XDHqXDH'.
 		end
 
 		def confirm?(message)
@@ -218,9 +220,9 @@ module XDHq
 		end
 	end
 
-	def XDHq::launch(headContent, dir)
+	def XDHq::launch(callback,userCallback,callbacks,headContent, dir)
 		$dir = dir
-		XDHqDEMO.launch(headContent)
+		XDHqDEMO.launch(callback, userCallback, callbacks, headContent)
 	end
 
 end

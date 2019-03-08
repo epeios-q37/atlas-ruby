@@ -62,7 +62,7 @@ class Chatroom
 	end
 
 	def displayMessages(dom)
-		if $messages.length() >= @lastMessage
+		if $messages.length() > @lastMessage
 			id = dom.createElement("span")
 			dom.setLayoutXSL(id, buildXML(), "Messages.xsl")
 			dom.insertChild(id, "Board")

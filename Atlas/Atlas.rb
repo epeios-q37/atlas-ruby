@@ -35,39 +35,25 @@ module Atlas
 	def Atlas::thread(userObject,dom,callbacks)
 		while true
 			action, id = dom.getAction()
-
 			callbacks[action].call(userObject,dom,id)
 		end
 	end
 
-	def Atlas::launch(callbacks,new,headContent="",dir="")
-		XDHq.launch(headContent,dir)
+	def self.cb(userObject, callbacks,instance)
+		return Thread.new(userObject,XDHq::DOM.new(instance),callbacks) do |userObject,dom,callbacks| thread(userObject, dom, callbacks) end
+ end
 
+	def Atlas::launch(callbacks,callback = -> () {},headContent="",dir="")
+		XDHq.launch(-> (userObject,callbacks,id) {self.cb(userObject,callbacks,id)},callback,callbacks,headContent,dir)
+=begin
 		while true
 			thread = Thread.new(new.call(),XDHq::DOM.new(),callbacks) do |userObject,dom,callbacks| thread(userObject, dom, callbacks) end
 			$threads << thread
 		end
+=end
 	end
 
 	def Atlas::readAsset(path, dir="")
 		return XDHq::readAsset(path, dir)
 	end
 end
-
-=begin
-trap("INT") {
-		pp($threads)
-		pp(Thread.list)
-  puts "trapping"
-		XDHq::l
-  $Thread.list.each{|t|
-    puts "killing"
-    Thread.kill t
-		}
-		XDHq::l
-		exit 130
-		XDHq::l
-		abort( "Yo !")
-		XDHq::l
-}
-=end
