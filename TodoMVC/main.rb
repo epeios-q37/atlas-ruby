@@ -237,4 +237,4 @@ callbacks = {
 	"Cancel" => -> (notes, dom, id) {notes.acCancel(dom,id)},
 }
 
-Atlas.launch(callbacks, -> () {TodoMVC.new()}, readAsset("HeadDEMO.html"),"TodoMVC")
+Atlas.launch(callbacks, -> () {TodoMVC.new()}, readAsset("HeadDEMO.html"), "TodoMVC")

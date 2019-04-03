@@ -23,7 +23,7 @@ require 'Atlas'
 $viewModeElements = ["Pattern", "CreateButton", "DescriptionToggling", "ViewNotes"]
 
 def readAsset(path)
-	return Atlas::readAsset(path, "notes")
+	return Atlas::readAsset(path, "Notes")
 end
 
 def put(note, id, xml)
@@ -182,4 +182,4 @@ callbacks = {
 	"Cancel" => -> (notes, dom, id) {notes.acCancel(dom,id)},
 }
 
-Atlas.launch(callbacks, -> () {Notes.new()}, readAsset("Head.html"),"notes")
+Atlas.launch(callbacks, -> () {Notes.new()}, readAsset("Head.html"), "Notes")

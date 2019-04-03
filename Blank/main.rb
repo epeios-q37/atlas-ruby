@@ -20,7 +20,7 @@
 require 'Atlas'
 
 def readAsset(path)
-	return Atlas::readAsset(path,"blank")
+	return Atlas::readAsset(path,"Blank")
 end
 
 def acConnect(blank, dom, id)
@@ -40,4 +40,4 @@ callbacks = {
 	"ShowInput" => method(:acShowInput)
 }
 
-Atlas.launch(callbacks, -> () {}, readAsset("Head.html"),"blank")
+Atlas.launch(callbacks, -> () {}, readAsset("Head.html"), "Blank")

@@ -24,7 +24,7 @@ $messages = []
 $pseudos = []
 
 def readAsset(path)
-	return Atlas::readAsset(path, "chatroom")
+	return Atlas::readAsset(path, "Chatroom")
 end
 
 class Chatroom
@@ -143,4 +143,4 @@ callbacks = {
 	"Update" => method(:acUpdate),
 }
 
-Atlas.launch(callbacks, ->() {return Chatroom.new()}, readAsset("Head.html"),"chatroom")
+Atlas.launch(callbacks, ->() {return Chatroom.new()}, readAsset("Head.html"), "Chatroom")

@@ -111,7 +111,7 @@ module XDHq
 			xslURL = xsl
 
 			if true	# Testing if 'PROD' or 'DEMO' mode when available.
-				xslURL = "data:text/xml;charset=utf-8," + uri::encode(XDHq::readAsset( xsl, $dir ))
+				xslURL = "data:text/xml;charset=utf-8," + URI::encode(XDHq::readAsset( xsl, $dir ))
 			end
 			setLayout( id, if xml.is_a?( String ) then xml else xml.toString() end, xslURL )
 		end

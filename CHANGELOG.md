@@ -6,7 +6,7 @@
 ## 2019-04-03
 
 - *Ruby*:
-  - fixing issue of *uri* module not loaded under *POSIX*,
+  - fixing issues occurring under *POSIX*,
 
 ## 2019-03-04
 
@@ -25,6 +25,7 @@
 - switching to version 0.6,
 
 ## 2018-12-11
+
 - removing the new session related stuff,
 
 ## 2018-12-07

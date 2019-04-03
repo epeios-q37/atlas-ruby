@@ -46,4 +46,4 @@ callbacks = {
 	"Clear" => method(:acClear),
 }
 
-Atlas.launch(callbacks, -> () {}, readAsset("Head.html"))
+Atlas.launch(callbacks, -> () {}, readAsset("Head.html"), "Hello")
