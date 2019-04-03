@@ -12,7 +12,7 @@ Here's how a [*Hello, World!*](https://en.wikipedia.org/wiki/%22Hello,_World!%22
 
 - `git clone http://github.com/epeios-q37/atlas-ruby`
 - `cd atlas-ruby`
-- `php Hello/Hello.rb`
+- `ruby -IAtlas Hello/Hello.rb`
 
 For a live demonstration: <http://q37.info/runkit/Hello>.
 

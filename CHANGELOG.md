@@ -3,6 +3,11 @@
 - Common to **all** bindings,
 - does **not** concern the native code,
 
+## 2019-04-03
+
+- *Ruby*:
+  - fixing issue of *uri* module not loaded under *POSIX*,
+
 ## 2019-03-04
 
 - one back-end now only opens one (multiplexed) connection to the proxy, instead of one per session,
