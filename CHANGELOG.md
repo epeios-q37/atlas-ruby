@@ -7,10 +7,12 @@
 
 - *Ruby*:
   - fixing issues occurring under *POSIX*,
+  - switching to version 0.7.1,
 
 ## 2019-03-04
 
 - one back-end now only opens one (multiplexed) connection to the proxy, instead of one per session,
+- switching to version 0.7,
 
 ## 2018-12-22
 
