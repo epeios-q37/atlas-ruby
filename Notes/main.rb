@@ -28,12 +28,10 @@ end
 
 def put(note, id, xml)
 	xml.pushTag("Note")
-	xml.setAttribute("id", id)
+	xml.putAttribute("id", id)
 
 	note.each do |key,value|
-		xml.pushTag(key)
-		xml.setValue(value)
-		xml.popTag()
+		xml.putTagAndValue(key,value)
 	end
 
 	xml.popTag()

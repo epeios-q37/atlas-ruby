@@ -32,10 +32,30 @@ module Atlas
 		return XDHqXML::XML.new(rootTag)
 	end
 
+	def Atlas::createHTML(rootTag = "")
+		return Atlas::createXML(rootTag)
+	end
+
+	def self.call_(callback, userObject, dom, id, action)
+		case callback.arity
+		when 0
+			return callback.call()
+		when 1
+			return callback.call(userObject)
+		when 2
+			return callback.call(userObject, dom)
+		when 3
+			return callback.call(userObject, dom, id)
+		else
+			return callback.call(userObject, dom, id, action)
+		end
+	end
+
 	def Atlas::thread(userObject,dom,callbacks)
 		while true
 			action, id = dom.getAction()
-			callbacks[action].call(userObject,dom,id)
+
+			self.call_(callbacks[action], userObject, dom, id, action)
 		end
 	end
 

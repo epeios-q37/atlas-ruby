@@ -54,9 +54,9 @@ class TodoMVC
 
 	private def push(todo, id, xml)
 		xml.pushTag("Todo")
-		xml.setAttribute("id", id)
-		xml.setAttribute("completed", if todo['completed'] then "true" else "false" end)
-		xml.setValue(todo['label'])
+		xml.putAttribute("id", id)
+		xml.putAttribute("completed", if todo['completed'] then "true" else "false" end)
+		xml.putValue(todo['label'])
 		xml.popTag()
 	end
 

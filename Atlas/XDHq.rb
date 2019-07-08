@@ -103,17 +103,42 @@ module XDHq
 			return call("Confirm_1", $STRING, 1, message, 0) == "true"
 		end
 
-		def setLayout(id, xml, xslFilename = "")
-			call("SetLayout_1", $VOID, 3, id, xml, xslFilename, 0)
+		private def handleLayout(command, id, xml, xslFilename = "")
+			call(command, $VOID, 3, id, if xml.is_a?( String ) then xml else xml.toString() end, xslFilename, 0)
 		end
 
-		def setLayoutXSL(id, xml, xsl)
+		def prependLayout(id, html)
+			handleLayout("PrependLayout_1", id, html)
+		end
+
+		def setLayout(id, html)
+			handleLayout("SetLayout_1", id, html)
+		end
+
+		def appendLayout(id, html)
+			handleLayout("AppendLayout_1", id, html)
+		end
+
+		private def handleLayoutXSL(command, id, xml, xsl)
 			xslURL = xsl
 
 			if true	# Testing if 'PROD' or 'DEMO' mode when available.
 				xslURL = "data:text/xml;charset=utf-8," + URI::encode(XDHq::readAsset( xsl, $dir ))
 			end
-			setLayout( id, if xml.is_a?( String ) then xml else xml.toString() end, xslURL )
+
+			handleLayout(command, id, xml, xslURL )
+		end
+
+		def prependLayoutXSL(id, xml, xsl)
+			handleLayoutXSL("PrependLayout_1", id, xml, xsl)
+		end
+
+		def setLayoutXSL(id, xml, xsl)
+			handleLayoutXSL("SetLayout_1", id, xml, xsl)
+		end
+
+		def appendLayoutXSL(id, xml, xsl)
+			handleLayoutXSL("AppendLayout_1", id, xml, xsl)
 		end
 	
 		def getContents(ids)
@@ -136,7 +161,8 @@ module XDHq
 		def setTimeout(delay,action )
 			call( "SetTimeout_1", $VOID, 2, delay.to_s(), action, 0 )
 		end
-	
+
+=begin	
 		def createElement(name, id = "" )
 			return call( "CreateElement_1", $STRING, 2, name, id, 0 )
 		end
@@ -144,7 +170,8 @@ module XDHq
 		def insertChild(child, id)
 			call( "InsertChild_1", $VOID, 2, child, id, 0 )
 		end
-	
+=end	
+
 		def dressWidgets(id)
 			return call( "DressWidgets_1", $VOID, 1, id, 0 )
 		end

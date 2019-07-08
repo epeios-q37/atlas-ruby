@@ -36,7 +36,7 @@ class Chatroom
 	def buildXML()
 		xml = Atlas.createXML("XDHTML")
 		xml.pushTag( "Messages" )
-		xml.setAttribute( "pseudo", @pseudo )
+		xml.putAttribute( "pseudo", @pseudo )
 
 		$mutex.synchronize  do
 			index = $messages.length() - 1
@@ -45,9 +45,9 @@ class Chatroom
 				message = $messages[index]
 
 				xml.pushTag( "Message" )
-				xml.setAttribute( "id", index )
-				xml.setAttribute( "pseudo", message['pseudo'] )
-				xml.setValue( message['content'] )
+				xml.putAttribute( "id", index )
+				xml.putAttribute( "pseudo", message['pseudo'] )
+				xml.putValue( message['content'] )
 				xml.popTag()
 
 				index -= 1
@@ -63,9 +63,7 @@ class Chatroom
 
 	def displayMessages(dom)
 		if $messages.length() > @lastMessage
-			id = dom.createElement("span")
-			dom.setLayoutXSL(id, buildXML(), "Messages.xsl")
-			dom.insertChild(id, "Board")
+			dom.prependLayoutXSL("Board", buildXML(), "Messages.xsl")
 		end
 	end
 

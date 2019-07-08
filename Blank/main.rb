@@ -23,20 +23,20 @@ def readAsset(path)
 	return Atlas::readAsset(path,"Blank")
 end
 
-def acConnect(blank, dom, id)
+def acConnect(blank, dom)
 	dom.setLayout("", readAsset("Main.html"))
 	dom.addClass("Input","hidden")
 end
 
-def acShowInput(blank, dom, id)
+def acShowInput(blank, dom)
 	dom.removeClass("Input", "hidden")
 	dom.focus("Pattern")
 end
 
 callbacks = {
 	"" => method(:acConnect),
-	"Submit" => -> (blank, dom, id) {dom.setContent("Pattern", dom.getContent("Pattern").upcase())},
-	"HideInput" => -> (blank, dom, id) { dom.addClass("Input", "hidden")},
+	"Submit" => -> (blank, dom) {dom.setContent("Pattern", dom.getContent("Pattern").upcase())},
+	"HideInput" => -> (blank, dom) { dom.addClass("Input", "hidden")},
 	"ShowInput" => method(:acShowInput)
 }
 

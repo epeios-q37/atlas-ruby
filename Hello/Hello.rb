@@ -39,17 +39,17 @@ $body =
 </div>
 HEREDOC
 
-def acConnect(userObject, dom, id)
+def acConnect(userObject, dom)
 	dom.setLayout("", $body)
 	dom.focus("input")
 end
 
-def acSubmit(userObject, dom, id)
+def acSubmit(userObject, dom)
 	dom.alert("Hello, " + dom.getContent("input") + "!")
 	dom.focus("input")
 end
 
-def acClear(userObject, dom, id)
+def acClear(userObject, dom)
 	if dom.confirm?("Are you sure?")
 		dom.setContent("input", "")
 	end

@@ -38,15 +38,21 @@ module XDHqXML
 			@xml += '<'
 		end
 
-		def setAttribute(name,value)
+		def putAttribute(name,value)
 			@xml += 'A'
 			write(name)
 			write(value)
 		end
 
-		def setValue(value)
+		def putValue(value)
 			@xml += "V"
 			write(value)
+		end
+
+		def putTagAndValue(tag,value)
+			pushTag(tag)
+			putValue(value)
+			popTag()
 		end
 
 		def toString()
