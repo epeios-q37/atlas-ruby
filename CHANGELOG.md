@@ -3,7 +3,38 @@
 - Common to **all** bindings,
 - does **not** concern the native code,
 
-## 2019-07-08:
+## 2019-08-01
+
+- *Python*
+  - switching to 0.10.7,
+
+## 2019-07-31
+
+- *Python*:
+  - if the `userCallback` parameter of the `Launch(…)` function is or returns `None`, the (optional) first parameter passed to the callbacks will be the *DOM* object (which is otherwise passed as second parameter, the user object returned by the user callback being the first),
+
+## 2019-07-28
+
+- *Python*:
+  - the user callback can now be `None`,
+
+## 2019-07-26
+
+- *Python*:
+  - switching to 0.10.4,
+
+## 2019-07-17
+
+- *Python*:
+  - *CTRL-C* does no more display messages,
+
+## 2019-07-09
+
+- *Python*:
+  - fixing encoding issue under *Python* 2,
+  - using ordered dictionaries under *Python* 2, to facilitate the retrieving of values, by using `values()` method, with methods returning dictionaries (dictionaries are ordered by default under *Python* 3),
+
+## 2019-07-08
 
 *ALL*:
     - switching to 0.10.0,

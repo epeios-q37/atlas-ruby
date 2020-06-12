@@ -1,24 +1,29 @@
 =begin
- Copyright (C) 2018 Claude SIMON (http://q37.info/contact/).
+MIT License
 
-	This file is part of XDHq.
+Copyright (c) 2018 Claude SIMON (https://q37.info/s/rmnmqd49)
 
-	XDHq is free software: you can redistribute it and/or
-	modify it under the terms of the GNU Affero General Public License as
-	published by the Free Software Foundation, either version 3 of the
-	License, or (at your option) any later version.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-	XDHq is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-	Affero General Public License for more details.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-	You should have received a copy of the GNU Affero General Public License
-	along with XDHq If not, see <http://www.gnu.org/licenses/>.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 =end
 
 module XDHq
-	require 'XDHqDEMO'
+	require 'XDHqFAAS'
 	require 'uri'
 
 	$dir = ""
@@ -54,7 +59,7 @@ module XDHq
 
 	def XDHq::getAssetPath(dir)
 		if XDHqSHRD::isDev?()
-			return File.join("/cygdrive/h/hg/epeios/tools/xdhq/examples/common/", dir)
+			return File.join("/home/csimon/epeios/tools/xdhq/examples/common/", dir)
 		else
 			return File.join(Dir.pwd,dir)
 		end
@@ -70,7 +75,7 @@ module XDHq
 
 	class DOM
 		def initialize(id)
-			@dom = XDHqDEMO::DOM.new(id)
+			@dom = XDHqFAAS::DOM.new(id)
 		end
 
 		private def unsplit(*args)
@@ -85,64 +90,80 @@ module XDHq
 			return @dom.call(command,type,*args)
 		end
 
-		def getAction()
+		def getAction
 			return @dom.getAction()
 		end
 
-		def execute(script)
-			return call("Execute_1" ,$STRING, 1, script, 0)
+		def isQuitting?
+			return @dom.isQuitting?
+		end
+
+		private def execute(type, script)
+			return call("Execute_1" ,type, script)
+		end
+
+		def executeVoid(script)
+			execute($VOID, script)
+		end
+	
+		def executeString(script)
+			return execute($STRING, script)
+		end
+	
+		def executeStrings(script)
+			return execute($STRINGS, script)
 		end
 	
 		def alert(message)
-			call( "Alert_1", $STRING, 1, message, 0 )
+			call( "Alert_1", $STRING, message)
 		# For the return value being 'STRING' instead of 'VOID',
 		# see the 'alert' primitive in 'XDHqXDH'.
 		end
 
 		def confirm?(message)
-			return call("Confirm_1", $STRING, 1, message, 0) == "true"
+			return call("Confirm_1", $STRING, message) == "true"
 		end
 
-		private def handleLayout(command, id, xml, xslFilename = "")
-			call(command, $VOID, 3, id, if xml.is_a?( String ) then xml else xml.toString() end, xslFilename, 0)
+		private def handleLayout(variant, id, xml, xslFilename = "")
+			call("HandleLayout_1", $VOID, variant, id, if xml.is_a?( String ) then xml else xml.toString() end, xslFilename)
 		end
 
 		def prependLayout(id, html)
-			handleLayout("PrependLayout_1", id, html)
+			handleLayout("Prepend", id, html)
 		end
 
 		def setLayout(id, html)
-			handleLayout("SetLayout_1", id, html)
+			handleLayout("Set", id, html)
 		end
 
 		def appendLayout(id, html)
-			handleLayout("AppendLayout_1", id, html)
+			handleLayout("Append", id, html)
 		end
 
-		private def handleLayoutXSL(command, id, xml, xsl)
+		private def handleLayoutXSL(variant, id, xml, xsl)
 			xslURL = xsl
 
-			if true	# Testing if 'PROD' or 'DEMO' mode when available.
+			if true	# Testing if 'SlfH' or 'FaaS' mode when available.
 				xslURL = "data:text/xml;charset=utf-8," + URI::encode(XDHq::readAsset( xsl, $dir ))
 			end
 
-			handleLayout(command, id, xml, xslURL )
+			handleLayout(variant, id, xml, xslURL )
 		end
 
 		def prependLayoutXSL(id, xml, xsl)
-			handleLayoutXSL("PrependLayout_1", id, xml, xsl)
+			handleLayoutXSL("Prepend", id, xml, xsl)
 		end
 
 		def setLayoutXSL(id, xml, xsl)
-			handleLayoutXSL("SetLayout_1", id, xml, xsl)
+			handleLayoutXSL("Set", id, xml, xsl)
 		end
 
 		def appendLayoutXSL(id, xml, xsl)
-			handleLayoutXSL("AppendLayout_1", id, xml, xsl)
+			handleLayoutXSL("Append", id, xml, xsl)
 		end
 	
 		def getContents(ids)
-			return unsplit(ids, call("GetContents_1", $STRINGS, 0, 1, ids))
+			return unsplit(ids, call("GetContents_1", $STRINGS, ids))
 		end
 
 		def getContent(id)
@@ -151,15 +172,11 @@ module XDHq
 
 		def setContents(idsAndContents)
 			ids, contents = split(idsAndContents)
-			call("SetContents_1", $VOID, 0, 2, ids, contents)
+			call("SetContents_1", $VOID, ids, contents)
 		end
 
 		def setContent(id, content)
 			setContents({id => content})
-		end
-
-		def setTimeout(delay,action )
-			call( "SetTimeout_1", $VOID, 2, delay.to_s(), action, 0 )
 		end
 
 =begin	
@@ -172,26 +189,22 @@ module XDHq
 		end
 =end	
 
-		def dressWidgets(id)
-			return call( "DressWidgets_1", $VOID, 1, id, 0 )
-		end
-	
-		private def handleClasses(command, idsAndClasses)
+		private def handleClasses(variant, idsAndClasses)
 			ids, classes = split(idsAndClasses)
 	
-			call(command, $VOID, 0, 2, ids, classes)
+			call("HandleClasses_1", $VOID, variant, ids, classes)
 		end
 	
 		def addClasses(idsAndClasses)
-			handleClasses("AddClasses_1", idsAndClasses)
+			handleClasses("Add", idsAndClasses)
 		end
 	
 		def removeClasses(idsAndClasses)
-			handleClasses("RemoveClasses_1", idsAndClasses)
+			handleClasses("Remove", idsAndClasses)
 		end
 	
 		def toggleClasses(idsAndClasses)
-			handleClasses("ToggleClasses_1", idsAndClasses)
+			handleClasses("Toggle", idsAndClasses)
 		end
 	
 		def addClass(id, clas)
@@ -207,7 +220,7 @@ module XDHq
 		end
 	
 		def enableElements(ids)
-			call("EnableElements_1", $VOID, 0, 1, ids)
+			call("EnableElements_1", $VOID, ids)
 		end
 	
 		def enableElement(id)
@@ -215,7 +228,7 @@ module XDHq
 		end
 	
 		def disableElements(ids)
-			call("DisableElements_1", $VOID, 0, 1, ids)
+			call("DisableElements_1", $VOID, ids)
 		end
 	
 		def disableElement(id)
@@ -223,33 +236,36 @@ module XDHq
 		end
 	
 		def setAttribute(id, name, value )
-			call("SetAttribute_1", $VOID, 3, id, name, value, 0 )
+			call("SetAttribute_1", $VOID, id, name, value )
 		end
 	
 		def getAttribute(id, name)
-			return call("GetAttribute_1", $STRING, 2, id, name, 0 )
+			return call("GetAttribute_1", $STRING, id, name )
 		end
 	
 		def removeAttribute(id, name )
-			call("RemoveAttribute_1", $VOID, 2, id, name, 0 )
+			call("RemoveAttribute_1", $VOID, id, name )
 		end
 	
 		def setProperty(id, name, value )
-			call("SetProperty_1", $VOID, 3, id, name, value, 0 )
+			call("SetProperty_1", $VOID, id, name, value )
 		end
 	
 		def getProperty(id, name )
-			return call("GetProperty_1", _STRING, 2, id, name, 0 )
+			return call("GetProperty_1", _STRING, id, name )
 		end
 
 		def focus(id)
-			call("Focus_1", $VOID, 1, id, 0)
+			call("Focus_1", $VOID, id )
 		end
 	end
 
 	def XDHq::launch(callback,userCallback,callbacks,headContent, dir)
 		$dir = dir
-		XDHqDEMO.launch(callback, userCallback, callbacks, headContent)
+		XDHqFAAS.launch(callback, userCallback, callbacks, headContent)
 	end
 
+	def XDHq::broadcastAction(action,id)
+		XDHqFAAS.broadcastAction(action,id)
+	end
 end
