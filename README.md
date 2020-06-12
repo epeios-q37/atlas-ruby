@@ -18,15 +18,16 @@
 
 ---
 
-With the *Atlas* toolkit, it has never been easier to write a modern web application ([*Single-page application*](https://q37.info/s/7sbmxd3j)):
-- no *Javascript* to write: only *HTML* and *Ruby*,
-- no [web server](https://q37.info/s/n3hpwsht) (*Apache*, *Nginx*…) to install: only the toolkit,
-- no remote server to host your application: only your computer;
-- no port to open on your internet box: a simple internet connection is enough for your application to be accessible from the entire internet,
+With the [*Atlas* toolkit](http://atlastk.org/), it has never been easier to create your own modern web application ([*SPA*](https://q37.info/s/7sbmxd3j)):
+- no *Javascript* to write; only *HTML* and *Ruby*,
+- no [front and back end architecture](https://q37.info/s/px7hhztd) to bother with,
+- no [web server](https://q37.info/s/n3hpwsht) (*Apache*, *Nginx*…) to install,
 
-and all this with only a library of about 35 KB.
+and all this only with the help of a library of about 30 KB.
 
-The Atlas toolkit is also the fastest and easiest way to add a [graphical user interface](https://q37.info/s/hw9n3pjs) to all your programs.
+With the *Atlas* toolkit, your applications will be accessible from the entire internet on laptops, smartphones, tablets…, and this without having to deploy them on a remote server or to open an incoming port on your internet box. All you need is a local computer with a simple internet connection. 
+
+The *Atlas* toolkit is also the fastest and easiest way to add a [graphical user interface](https://q37.info/s/hw9n3pjs) to all your programs.
 
 
 ## *TodoMVC*
