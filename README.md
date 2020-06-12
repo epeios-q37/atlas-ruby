@@ -23,14 +23,14 @@ With the [*Atlas* toolkit](http://atlastk.org/), it has never been easier to cre
 - no [front and back end architecture](https://q37.info/s/px7hhztd) to bother with,
 - no [web server](https://q37.info/s/n3hpwsht) (*Apache*, *Nginx*…) to install,
 
-and all this only with the help of a library of about 30 KB.
+and all this only with the help of a library of about 35 KB.
 
 With the *Atlas* toolkit, your applications will be accessible from the entire internet on laptops, smartphones, tablets…, and this without having to deploy them on a remote server or to open an incoming port on your internet box. All you need is a local computer with a simple internet connection. 
 
 The *Atlas* toolkit is also the fastest and easiest way to add a [graphical user interface](https://q37.info/s/hw9n3pjs) to all your programs.
 
 
-## *TodoMVC*
+## Live demonstrations
 
 Before diving into source code, you can have a look on some live demonstrations, like this *Atlas* toolkit version of the [*TodoMVC*](http://todomvc.com/) application:
 
