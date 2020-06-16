@@ -24,11 +24,11 @@ do
     printf "%s: %s\n" "$(chr $((97 + $i )))" "${DEMOS[$i]}"  
   done
 
-  echo -n -e "\nChoose exemple to launch ('a'…'$(chr $((96 + $DEMOS_AMOUNT)))'): "
+  echo -n -e "\nChoose example to launch ('a'…'$(chr $((96 + $DEMOS_AMOUNT)))'): "
 
   read DEMO
 
   export FILE=${DEMOS[$(($(ord $DEMO) - 97))]}
 
-  [ -f $FILE/main.rb ] && CONT=false && ruby -IAtlas $FILE/main.rb
+  [ -f examples/$FILE/main.rb ] && cd examples && CONT=false && ruby -I../atlastk $FILE/main.rb
 done
