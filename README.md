@@ -1,15 +1,10 @@
 # *Ruby* version of the *Atlas* toolkit
 
-![For Ruby](https://q37.info/download/assets/Ruby.png "Ruby logo")
-
 [![Run on Repl.it](https://repl.it/badge/github/epeios-q37/atlas-ruby)](https://q37.info/s/9thdtmjg)
 [![Version 0.11](https://img.shields.io/static/v1.svg?&color=90b4ed&label=Version&message=0.11)](http://github.com/epeios-q37/atlas-ruby/)
 [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-ruby.svg?style=social)](https://github.com/epeios-q37/atlas-ruby/stargazers)
 [![license: MIT](https://img.shields.io/github/license/epeios-q37/atlas-ruby?color=yellow)](https://github.com/epeios-q37/atlas-ruby/blob/master/LICENSE)
 [![Homepage](https://img.shields.io/static/v1?label=homepage&message=atlastk.org&color=ff69b4)](https://atlastk.org)
-
-
-
 
 > The [*Atlas* toolkit](https://atlastk.org) is available for:
 > langage | repository address| popularity 
@@ -19,9 +14,6 @@
 > *Perl* |<http://github.com/epeios-q37/atlas-perl>|  [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-perl.svg?style=social)](https://github.com/epeios-q37/atlas-perl/stargazers)
 > *Python* | <http://github.com/epeios-q37/atlas-python> | [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-python.svg?style=social)](https://github.com/epeios-q37/atlas-python/stargazers)
 > *Ruby* | <http://github.com/epeios-q37/atlas-ruby> | [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-ruby.svg?style=social)](https://github.com/epeios-q37/atlas-ruby/stargazers)
-
-
-
 
 ---
 
