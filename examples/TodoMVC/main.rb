@@ -108,7 +108,7 @@ class TodoMVC
 
 		xml.popTag()
 
-		dom.setLayoutXSL("Todos", xml, "Todos.xsl")
+		dom.inner("Todos", xml, "Todos.xsl")
 		handleCount(dom)
 	end
 
@@ -150,7 +150,7 @@ class TodoMVC
 	end
 
 	def acConnect(dom, id)
-		dom.setLayout("", readAsset("Main.html"))
+		dom.inner("", readAsset("Main.html"))
 		dom.focus("Input")
 		displayTodos(dom)
 		dom.disableElements(["HideActive", "HideCompleted"])

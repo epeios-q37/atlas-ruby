@@ -68,7 +68,7 @@ class Chatroom
 
 	def displayMessages(dom)
 		if $messages.length() > @lastMessage
-			dom.prependLayoutXSL("Board", buildXML(), "Messages.xsl")
+			dom.begin("Board", buildXML(), "Messages.xsl")
 		end
 	end
 
@@ -99,7 +99,7 @@ class Chatroom
 end
 
 def acConnect( chatroom, dom, id)
-	dom.setLayout("", readAsset("Main.html"))
+	dom.inner("", readAsset("Main.html"))
 	dom.focus("Pseudo")
 	chatroom.displayMessages(dom)
 end

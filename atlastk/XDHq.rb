@@ -113,6 +113,10 @@ module XDHq
 		def executeStrings(script)
 			return execute($STRINGS, script)
 		end
+
+		def flush(id)
+			call("Flush_1", $STRING, id)
+		end
 	
 		def alert(message)
 			call( "Alert_1", $STRING, message)
@@ -128,15 +132,15 @@ module XDHq
 			call("HandleLayout_1", $VOID, variant, id, if xml.is_a?( String ) then xml else xml.toString() end, xslFilename)
 		end
 
-		def prependLayout(id, html)
+		def prependLayout(id, html)	# Deprecated!
 			handleLayout("Prepend", id, html)
 		end
 
-		def setLayout(id, html)
+		def setLayout(id, html)	# Deprecated!
 			handleLayout("Set", id, html)
 		end
 
-		def appendLayout(id, html)
+		def appendLayout(id, html)	# Deprecated!
 			handleLayout("Append", id, html)
 		end
 
@@ -150,16 +154,44 @@ module XDHq
 			handleLayout(variant, id, xml, xslURL )
 		end
 
-		def prependLayoutXSL(id, xml, xsl)
+		def prependLayoutXSL(id, xml, xsl)	# Deprecated!
 			handleLayoutXSL("Prepend", id, xml, xsl)
 		end
 
-		def setLayoutXSL(id, xml, xsl)
+		def setLayoutXSL(id, xml, xsl)	# Deprecated!
 			handleLayoutXSL("Set", id, xml, xsl)
 		end
 
-		def appendLayoutXSL(id, xml, xsl)
+		def appendLayoutXSL(id, xml, xsl)	# Deprecated!
 			handleLayoutXSL("Append", id, xml, xsl)
+		end
+
+		private def layout(variant, id, xml, xsl)
+			if !xsl.empty?
+				xsl = "data:text/xml;charset=utf-8," + URI::encode(XDHq::readAsset( xsl, $dir ))
+			end
+
+			call("HandleLayout_1", $VOID, variant, id, if xml.is_a?( String ) then xml else xml.toString() end, xsl)
+		end
+		
+		def before(id, xml, xsl="")
+			layout("beforebegin", id, xml, xsl)
+		end
+	
+		def begin(id, xml, xsl="")
+			layout("afterbegin", id, xml, xsl)
+		end
+	
+		def inner(id, xml, xsl="")
+			layout("inner", id, xml, xsl)
+		end
+	
+		def end(id, xml, xsl="")
+			layout("beforeend", id, xml, xsl)
+		end
+	
+		def after(id, xml, xsl="")
+			layout("afterend", id, xml, xsl)
 		end
 	
 		def getContents(ids)
@@ -257,6 +289,30 @@ module XDHq
 
 		def focus(id)
 			call("Focus_1", $VOID, id )
+		end
+
+		def parent(id)
+			return call("Parent_1", $STRING, id)
+		end
+
+		def firstChild(id)
+			return call("FirstChild_1", $STRING, id)
+		end
+
+		def lastChild(id)
+			return call("LastChild_1", $STRING, id)
+		end
+
+		def previousSibling(id)
+			return call("PreviousSibling_1", $STRING, id)
+		end
+
+		def nextSibling(id)
+			return call("NextSibling_1", $STRING, id)
+		end
+
+		def scrollTo(id)
+			call("ScrollTo_1", $VOID, id)
 		end
 	end
 

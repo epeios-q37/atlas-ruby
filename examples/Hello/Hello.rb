@@ -45,7 +45,7 @@ $body =
 HEREDOC
 
 def acConnect(userObject, dom)
-	dom.setLayout("", $body)
+	dom.inner("", $body)
 	dom.focus("input")
 end
 

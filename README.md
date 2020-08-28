@@ -1,13 +1,10 @@
 # *Ruby* version of the *Atlas* toolkit
 
-<!--![For Ruby](https://q37.info/download/assets/Ruby.png "Ruby logo")-->
-
 [![Run on Repl.it](https://repl.it/badge/github/epeios-q37/atlas-ruby)](https://q37.info/s/9thdtmjg)
-[![Version 0.11](https://img.shields.io/static/v1.svg?&color=90b4ed&label=Version&message=0.11)](http://github.com/epeios-q37/atlas-ruby/)
+[![Version 0.12](https://img.shields.io/static/v1.svg?&color=90b4ed&label=Version&message=0.12)](http://github.com/epeios-q37/atlas-ruby/)
 [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-ruby.svg?style=social)](https://github.com/epeios-q37/atlas-ruby/stargazers)
 [![license: MIT](https://img.shields.io/github/license/epeios-q37/atlas-ruby?color=yellow)](https://github.com/epeios-q37/atlas-ruby/blob/master/LICENSE)
 [![Documentation](https://img.shields.io/static/v1?label=documentation&message=atlastk.org&color=ff69b4)](https://atlastk.org)
-
 
 
 
@@ -20,6 +17,9 @@
 > | [*Perl*](https://q37.info/s/4nvmwjgg) |<https://github.com/epeios-q37/atlas-perl> | <https://q37.info/s/h3h34zgq> | [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-perl.svg?style=social)](https://github.com/epeios-q37/atlas-perl/stargazers) |
 > | [*Python*](https://q37.info/s/pd7j9k4r) | <https://github.com/epeios-q37/atlas-python> | <https://q37.info/s/vwpsw73v> | [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-python.svg?style=social)](https://github.com/epeios-q37/atlas-python/stargazers) |
 > | [*Ruby*](https://q37.info/s/gkfj3zpz) | <https://github.com/epeios-q37/atlas-ruby> | <https://q37.info/s/9thdtmjg> | [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-ruby.svg?style=social)](https://github.com/epeios-q37/atlas-ruby/stargazers) |
+
+***Note for Repl.it users (online demonstrations)***: **after the first demonstration, you may have to click the reload button top left in the frame containing the QR code to display it for the other demonstrations.**
+
 
 
 
@@ -47,7 +47,7 @@ $body =
 HEREDOC
 
 def acConnect(userObject, dom, id)
- dom.setLayout("", $body)
+ dom.inner("", $body)
  dom.focus("input")
 end
 

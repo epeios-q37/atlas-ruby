@@ -29,7 +29,7 @@ def readAsset(path)
 end
 
 def acConnect(userObject, dom)
-	dom.setLayout("", readAsset("Main.html"))
+	dom.inner("", readAsset("Main.html"))
 	dom.focus("input")
 end
 

@@ -92,7 +92,7 @@ class Notes
 			index += 1
 		end
 
-		dom.setLayoutXSL("Notes", xml, "Notes.xsl")
+		dom.inner("Notes", xml, "Notes.xsl")
 		dom.setContents(contents)
 		dom.enableElements($viewModeElements)
 	end
@@ -104,7 +104,7 @@ class Notes
 	end
 
 	def acConnect(dom, id)
-		dom.setLayout("", readAsset("Main.html"))
+		dom.inner("", readAsset("Main.html"))
 		displayList(dom)
 	end
 
@@ -123,7 +123,7 @@ class Notes
 		@index = index.to_i()
 		note = @notes[@index]
 		
-		dom.setLayout("Edit." + index, readAsset( "Note.html") )
+		dom.inner("Edit." + index, readAsset( "Note.html") )
 		dom.setContents({ "Title" => note['title'], "Description" => note['description'] })
 		dom.disableElements($viewModeElements)
 		dom.focus("Title")
