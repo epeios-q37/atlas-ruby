@@ -1,10 +1,11 @@
 # *Ruby* version of the *Atlas* toolkit
 
-[![Run on Repl.it](https://repl.it/badge/github/epeios-q37/atlas-ruby)](https://q37.info/s/9thdtmjg)
-[![Version 0.12](https://img.shields.io/static/v1.svg?&color=90b4ed&label=Version&message=0.12)](http://github.com/epeios-q37/atlas-ruby/)
-[![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-ruby.svg?style=social)](https://github.com/epeios-q37/atlas-ruby/stargazers)
-[![license: MIT](https://img.shields.io/github/license/epeios-q37/atlas-ruby?color=yellow)](https://github.com/epeios-q37/atlas-ruby/blob/master/LICENSE)
-[![Documentation](https://img.shields.io/static/v1?label=documentation&message=atlastk.org&color=ff69b4)](https://atlastk.org)
+[![Run on Repl.it](https://repl.it/badge/github/epeios-q37/atlas-ruby)](https://q37.info/s/9thdtmjg)  
+[![Version 0.12](https://img.shields.io/static/v1.svg?&color=90b4ed&label=Version&message=0.12&style=for-the-badge)](http://github.com/epeios-q37/atlas-ruby/)
+[![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-ruby.svg?style=for-the-badge)](https://github.com/epeios-q37/atlas-ruby/stargazers)
+[![Forks](https://img.shields.io/github/forks/epeios-q37/atlas-ruby.svg?style=for-the-badge)](https://github.com/epeios-q37/atlas-ruby/network/members)
+[![license: MIT](https://img.shields.io/github/license/epeios-q37/atlas-ruby?color=yellow&style=for-the-badge)](https://github.com/epeios-q37/atlas-ruby/blob/master/LICENSE)
+[![Documentation](https://img.shields.io/static/v1?label=documentation&message=atlastk.org&color=ff69b4&style=for-the-badge)](https://atlastk.org)
 
 
 
@@ -18,8 +19,13 @@
 > | [*Python*](https://q37.info/s/pd7j9k4r) | <https://github.com/epeios-q37/atlas-python> | <https://q37.info/s/vwpsw73v> | [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-python.svg?style=social)](https://github.com/epeios-q37/atlas-python/stargazers) |
 > | [*Ruby*](https://q37.info/s/gkfj3zpz) | <https://github.com/epeios-q37/atlas-ruby> | <https://q37.info/s/9thdtmjg> | [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-ruby.svg?style=social)](https://github.com/epeios-q37/atlas-ruby/stargazers) |
 
-***Note for Repl.it users (online demonstrations)***: **after the first demonstration, you may have to click the reload button top left in the frame containing the QR code to display it for the other demonstrations.**
+---
 
+***Note for Repl.it users (online demonstrations)***: **after having launched a demonstration, you may have to click the refresh button (red arrow on picture below) top left in the frame containing the QR code to display it for the other demonstrations.**
+
+[![The refresh button](https://q37.info/s/vsc3c7gc.png "The button to click to display the QR code")](http://q37.info/s/zbgfjtp9)
+
+---
 
 
 
