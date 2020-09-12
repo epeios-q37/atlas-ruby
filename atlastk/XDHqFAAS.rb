@@ -123,15 +123,16 @@ module XDHqFAAS
 	def self.init
 		token = ""
 
-		case XDHq::getEnv("ATK")
+		case XDHq::getEnv("ATK").upcase
 		when ""
+		when "NONE"
 		when "DEV"
 			@pAddr = "localhost"
 			@wPort = "8080"
 			puts("\tDEV mode !")
 		when "TEST"
 			@cgi = "xdh_"
-		when "REPLit"
+		when "REPLIT"
 			# Just to filter out this case.
 		else
 			abort("Bad 'ATK' environment variable value : should be 'DEV' or 'TEST' !")
@@ -268,7 +269,7 @@ module XDHqFAAS
 			puts("Open above URL in a web browser. Enjoy!\n")
 			if (XDHqSHRD::isREPLit?())
 				system(@REPLit % [url])
-			else
+			elsif (XDHq::getEnv("ATK").upcase != "NONE")
 				XDHqSHRD::open(url)
 			end
 		end

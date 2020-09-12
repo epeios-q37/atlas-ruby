@@ -53,6 +53,6 @@ module XDHqSHRD
 	end
 	
 	def XDHqSHRD::isREPLit?()
-		return getEnv("ATK") == "REPLit"
+		return getEnv("ATK").upcase == "REPLIT"
 	end
 end
