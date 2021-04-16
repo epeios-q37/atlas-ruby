@@ -50,13 +50,13 @@ def acConnect(userObject, dom)
 end
 
 def acSubmit(userObject, dom)
-	dom.alert("Hello, " + dom.getContent("input") + "!")
+	dom.alert("Hello, " + dom.getValue("input") + "!")
 	dom.focus("input")
 end
 
 def acClear(userObject, dom)
 	if dom.confirm?("Are you sure?")
-		dom.setContent("input", "")
+		dom.setValue("input", "")
 	end
 	dom.focus("input")
 end

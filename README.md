@@ -23,63 +23,59 @@
 
 ---
 
-## Straight to the point: the ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) program
+## A GUI with *Ruby* in less then 10 minutes
 
-### Source code
+Click to see how to program this ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) with *Ruby* in less then 10 minutes:
+
+[![Building a GUI in with *Ruby* in less then 10 minutes](https://q37.info/s/qp4z37pg.gif)](https://q37.info/s/zgb4d9v3)
+
+Same video on [*Peertube*](https://en.wikipedia.org/wiki/PeerTube): <https://q37.info/s/fj3trgds>.
+
+Source code:
 
 ```ruby
 require 'Atlas'
 
-$body =
+$BODY =
 <<~HEREDOC
 <fieldset>
- <input id="input" maxlength="20" placeholder="Enter a name here" type="text"
-        data-xdh-onevent="Submit" value="World"/>
- <div style="display: flex; justify-content: space-around; margin: 5px auto auto auto;">
-  <button data-xdh-onevent="Submit">Submit</button>
-  <button data-xdh-onevent="Clear">Clear</button>
- </div>
+ <input id="Input" data-xdh-onevent="Submit" value="World"/>
+ <button data-xdh-onevent="Submit">Hello</button>
+ <hr/>
+ <fieldset>
+  <output id="Output">Greetings displayed here!</output>
+ </fieldset>
 </fieldset>
 HEREDOC
 
 def acConnect(userObject, dom, id)
- dom.inner("", $body)
- dom.focus("input")
+ dom.inner("", $BODY)
+ dom.focus("Input")
 end
 
 def acSubmit(userObject, dom, id)
- dom.alert("Hello, " + dom.getContent("input") + "!")
- dom.focus("input")
-end
-
-def acClear(userObject, dom, id)
- if dom.confirm?("Are you sure?")
-  dom.setContent("input", "")
- end
- dom.focus("input")
+ name = dom.getValue("Input")
+ dom.setValue("Output", "Hello, " + name + "!")
+ dom.setValue("Input", "")
+ dom.focus("Input")
 end
 
 callbacks = {
- "" => method(:acConnect),  # This key is the action label for a new connection.
- "Submit" => method(:acSubmit),
- "Clear" => method(:acClear),
+ "" => method(:acConnect),
+ "Submit" => method(:acSubmit)
 }
 
 Atlas.launch(callbacks)
 ```
 
-### Result
-
-[![Little demonstration](https://q37.info/download/assets/Hello.gif "A basic example")](https://q37.info/s/9thdtmjg)
-
 ### See for yourself right now - it's quick and easy!
 
-#### Online, with nothing to install [![About online demonstrations](https://img.shields.io/badge/about-online%20demonstrations-informational)](https://q37.info/s/sssznrb4)
+#### Online, with nothing to install
 
-Thanks to [*Replit*](https://q37.info/s/mxmgq3qm), an [online IDE](https://q37.info/s/zzkzbdw7), you can write and run programs using the *Atlas* toolkit directly in your web browser, without having to install *Ruby* on your computer.
+Thanks to [*Replit*](https://q37.info/s/mxmgq3qm), an [online IDE](https://q37.info/s/zzkzbdw7), you can write and run programs using the *Atlas* toolkit directly in your web browser, without having to install *Ruby* on your computer [![About online demonstrations](https://img.shields.io/badge/about-online%20demonstrations-informational)](https://q37.info/s/sssznrb4).
 
 To see some examples, like the following [*TodoMVC*](http://todomvc.com/) application or the above ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) program, simply:
-- go [here](https://q37.info/s/9thdtmjg) (also accessible with the [![Run on Repl.it](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/9thdtmjg) badge at the top of this page),
+- go [here](https://q37.info/s/9thdtmjg) (also accessible with the [![Run on Repl.it](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/9thdtmjg) button at the top of this page),
 -  click on the green `run` button,
 -  choose the demonstration to launch,
 -  open the then displayed URL in a browser (should be clickable), 
@@ -95,11 +91,13 @@ cd atlas-ruby/examples
 ruby -I../atlastk Hello/Hello.rb
 ```
 
+
+
 ## Your turn
 
 If you want to take your code to the next level, from [CLI](https://q37.info/s/cnh9nrw9) to [GUI](https://q37.info/s/hw9n3pjs), then you found the right toolkit.
 
-With the [*Atlas* toolkit](http://atlastk.org/), you transform your programs in modern web applications ([*SPA*](https://q37.info/s/7sbmxd3j)), but without the usual hassles:
+With the [*Atlas* toolkit](http://atlastk.org/), you transform your programs in modern web applications ([*SPA*](https://q37.info/s/7sbmxd3j)) without the usual hassles:
 - no *JavaScript* to write; only *HTML*(/*CSS*) and *Ruby*,
 - no [front and back end architecture](https://q37.info/s/px7hhztd) to bother with,
 - no [web server](https://q37.info/s/n3hpwsht) (*Apache*, *Nginx*…) to install,
@@ -108,7 +106,7 @@ With the [*Atlas* toolkit](http://atlastk.org/), you transform your programs in 
 
 The *Atlas* toolkit is written in pure *Ruby*, with no native code and no dependencies, allowing the *Atlas* toolkit to be used on all environments where *Ruby* is available. 
 
-And, icing on the cake, simply by running them on a local computer with a simple internet connection, applications using the *Atlas* toolkit will be accessible from the entire internet on laptops, smartphones, tablets…
+And simply by running them on a local computer connected to internet, applications using the *Atlas* toolkit will be accessible from the entire internet on laptops, smartphones, tablets…
 
 ## Content of the repository
 

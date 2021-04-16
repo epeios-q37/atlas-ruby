@@ -194,22 +194,60 @@ module XDHq
 			layout("afterend", id, xml, xsl)
 		end
 	
-		def getContents(ids)
+		def getContents(ids) # Deprecated!
 			return unsplit(ids, call("GetContents_1", $STRINGS, ids))
 		end
 
-		def getContent(id)
+		def getContent(id) # Deprecated!
 			return getContents([id])[id]
 		end
 
-		def setContents(idsAndContents)
+		def setContents(idsAndContents) # Deprecated!
 			ids, contents = split(idsAndContents)
 			call("SetContents_1", $VOID, ids, contents)
 		end
 
-		def setContent(id, content)
+		def setContent(id, content) # Deprecated!
 			setContents({id => content})
 		end
+
+###
+		def getValues(ids)
+			return unsplit(ids, call("GetValues_1", $STRINGS, ids))
+		end
+
+		def getValue(id)
+			return getValues([id])[id]
+		end
+
+		def setValues(idsAndValues)
+			ids, values = split(idsAndValues)
+			call("SetValues_1", $VOID, ids, values)
+		end
+
+		def setValue(id, value)
+			setValues({id => value})
+		end
+###
+
+###
+		def getMarks(ids)
+			return unsplit(ids, call("GetMarks_1", $STRINGS, ids))
+		end
+
+		def getMark(id)
+			return getMarks([id])[id]
+		end
+
+		def setMarks(idsAndMarks)
+			ids, marks = split(idsAndMarks)
+			call("SetMarks_1", $VOID, ids, marks)
+		end
+
+		def setMark(id, mark)
+			setMarks({id => mark})
+		end
+###
 
 =begin	
 		def createElement(name, id = "" )

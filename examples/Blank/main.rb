@@ -40,7 +40,7 @@ end
 
 callbacks = {
 	"" => method(:acConnect),
-	"Submit" => -> (blank, dom) {dom.setContent("Pattern", dom.getContent("Pattern").upcase())},
+	"Submit" => -> (blank, dom) {dom.setValue("Pattern", dom.getValue("Pattern").upcase())},
 	"HideInput" => -> (blank, dom) { dom.addClass("Input", "hidden")},
 	"ShowInput" => method(:acShowInput)
 }

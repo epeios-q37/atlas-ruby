@@ -105,29 +105,29 @@ def acConnect( chatroom, dom, id)
 end
 
 def acSubmitPseudo(chatroom, dom, id)
-	pseudo = dom.getContent("Pseudo").strip()
+	pseudo = dom.getValue("Pseudo").strip()
 
 	if pseudo.empty?()
 		dom.alert("Pseudo. can not be empty !")
-		dom.setContent("Pseudo", "")
+		dom.setValue("Pseudo", "")
 		dom.focus("Pseudo")
 	elsif chatroom.handlePseudo(pseudo)
 		dom.addClass("PseudoButton", "hidden")
 		dom.disableElements(["Pseudo", "PseudoButton"])
 		dom.enableElements(["Message", "MessageButton"])
-		dom.setContent("Pseudo", pseudo)
+		dom.setValue("Pseudo", pseudo)
 		dom.focus("Message")
 		puts("\t>>>> New user: " + pseudo)
 	elsif
 		dom.alert("Pseudo. not available !")
-		dom.setContent("Pseudo", pseudo)
+		dom.setValue("Pseudo", pseudo)
 		dom.focus("Pseudo")
 	end
 end
 
 def acSubmitMessage(chatroom, dom, id)
-	message = dom.getContent("Message")
-	dom.setContent("Message", "")
+	message = dom.getValue("Message")
+	dom.setValue("Message", "")
 	dom.focus("Message")
 	chatroom.addMessage(message)
 	chatroom.displayMessages(dom)

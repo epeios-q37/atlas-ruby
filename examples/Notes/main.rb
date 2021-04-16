@@ -93,13 +93,13 @@ class Notes
 		end
 
 		dom.inner("Notes", xml, "Notes.xsl")
-		dom.setContents(contents)
+		dom.setValues(contents)
 		dom.enableElements($viewModeElements)
 	end
 
 	private def view(dom)
 		dom.enableElements($viewModeElements)
-		dom.setContent("Edit." + @index.to_s(), "")
+		dom.setValue("Edit." + @index.to_s(), "")
 		@index = -1
 	end
 
@@ -109,35 +109,35 @@ class Notes
 	end
 
 	def acToggleDescriptions(dom, id)
-		@hideDescriptions = dom.getContent(id) == "true"
+		@hideDescriptions = dom.getValue(id) == "true"
 		handleDescriptions(dom)
 	end
 
 	def acSearch(dom, id)
-		@pattern = dom.getContent("Pattern").downcase()
+		@pattern = dom.getValue("Pattern").downcase()
 		displayList(dom)
 	end
 
 	def acEdit(dom, id)
-		index = dom.getContent(id)
+		index = dom.getMark(id)
 		@index = index.to_i()
 		note = @notes[@index]
 		
 		dom.inner("Edit." + index, readAsset( "Note.html") )
-		dom.setContents({ "Title" => note['title'], "Description" => note['description'] })
+		dom.setValues({ "Title" => note['title'], "Description" => note['description'] })
 		dom.disableElements($viewModeElements)
 		dom.focus("Title")
 	end	
 
 	def acDelete(dom, id)
 		if dom.confirm?("Are you sure you want to delete this entry ?")
-			@notes.delete_at(dom.getContent(id).to_i())
+			@notes.delete_at(dom.getMark(id).to_i())
 			displayList(dom)	
 		end
 	end
 
 	def acSubmit(dom, id)
-		result = dom.getContents(["Title", "Description"])
+		result = dom.getValues(["Title", "Description"])
 		title = result["Title"].strip()
 		description = result["Description"]
 	
@@ -148,7 +148,7 @@ class Notes
 				@notes.unshift( {'title' => '', 'description' => ''})
 				displayList( dom )
 			else
-				dom.setContents( { "Title." + @index.to_s() => title, "Description." + @index.to_s() => description })
+				dom.setValues( { "Title." + @index.to_s() => title, "Description." + @index.to_s() => description })
 				view(dom)
 			end
 		else
@@ -160,7 +160,7 @@ class Notes
 	def acCancel(dom, id)
 		note = @notes[@index]
 	
-		result = dom.getContents(["Title", "Description"])
+		result = dom.getValues(["Title", "Description"])
 		title = result["Title"].strip()
 		description = result["Description"]
 	

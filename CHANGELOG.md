@@ -1,20 +1,51 @@
 # *CHANGELOG* for the *Atlas* toolkit
 
 - Common to **all** bindings,
-- does **not** concern the native code,
+- does **not** concern the native code.
+
+## 2021-04-14:
+
+- *ALL*: various updates,
+
+## 2021-03-15:
+
+- *Python*: fixing misuse of `socket.send(…)`,
+
+## 2021-03-13:
+
+- *Python*: improving the use of the *Atlas* toolkit in a *Jupyter* notebook,
+
+## 2021-03-09:
+
+- *Python*:
+  - *Google* *Colab* is now also detected,
+  - the iframe size can now be set: `atlastk.setJupyter(Width|Height)(…)`,
+
+## 2021-03-07:
+
+- *Python* :
+  - the *Python* version of the *Atlas* *toolkit* is now more usable in a *Jupyter* notebooks,
+  - now launches a demo on `python -m atlastk`,
+
+## 2021-02-15:
+
+- *Python*: the *Atlas* *toolkit* can now be used in a *Jupyter* notebook,
+
+## 2020-12-18:
+
+- *Python*: introducing `set_supplier(…)`, `attach_qrcode(…)` and `get_ap_url(…)`,
+
+## 2020-10-01:
+
+- *Python*: fixing issue of `socket.recv(bufsize)` receiving less data than *bufsize*, 
 
 ## 2020-08-28
 
 - *ALL*:
-  
    - switching to 0.12,
-  
    - adding functions to retrieve parent, siblings or children of an element,
-  
    - adding function `scrollTo(…)`,
-  
    - deprecating layout related functions,
-  
    - adding `before(…)`,`begin(…)`,`inner(…)`,`end(…)`,`after(…)` functions,
 
 ## 2020-06-12

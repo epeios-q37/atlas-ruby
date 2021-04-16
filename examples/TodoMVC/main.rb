@@ -74,7 +74,7 @@ class TodoMVC
 			text = count.to_s() + " items left"
 		end
 
-		dom.setContent("Count", text)
+		dom.setValue("Count", text)
 	end
 
 	private def handleCount(dom)
@@ -113,8 +113,8 @@ class TodoMVC
 	end
 
 	private def submitNew(dom)
-		content = dom.getContent("Input").strip()
-		dom.setContent("Input", "")
+		content = dom.getValue("Input").strip()
+		dom.setValue("Input", "")
 
 		if !content.empty?()
 			@todos.unshift({'label' => content, 'completed' => false})
@@ -126,13 +126,13 @@ class TodoMVC
 		index = @index
 		@index = -1
 
-		content = dom.getContent("Input." + index.to_s()).strip()
-		dom.setContent("Input." + index.to_s(), "")
+		content = dom.getValue("Input." + index.to_s()).strip()
+		dom.setValue("Input." + index.to_s(), "")
 
 		if !content.empty?()
 			@todos[index]['label'] = content
 
-			dom.setContent("Label." + index.to_s(), content)
+			dom.setValue("Label." + index.to_s(), content)
 
 			dom.removeClasses({"View." + index.to_s() => "hide", "Todo." + index.to_s() => "editing"})
 		else
@@ -157,7 +157,7 @@ class TodoMVC
 	end
 
 	def acDestroy(dom, id)
-		@todos.delete_at(dom.getContent(id).to_i())
+		@todos.delete_at(dom.getMark(id).to_i())
 		displayTodos(dom)
 	end
 
@@ -212,11 +212,11 @@ class TodoMVC
 	end
 
 	def acEdit(dom, id)
-		content = dom.getContent(id)
+		content = dom.getMark(id)
 		@index = content.to_i()
 	
 		dom.addClasses({"View." + content => "hide", id => "editing"})
-		dom.setContent("Input." + content, @todos[@index]['label'])
+		dom.setValue("Input." + content, @todos[@index]['label'])
 		dom.focus("Input." + content)
 	end
 
@@ -224,7 +224,7 @@ class TodoMVC
 		index = @index.to_s()
 		@index = -1
 	
-		dom.setContent("Input." + index, "")
+		dom.setValue("Input." + index, "")
 		dom.removeClasses({"View." + index => "hide", "Todo." + index => "editing"})
 	end
 end

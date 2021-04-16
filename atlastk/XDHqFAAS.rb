@@ -343,11 +343,11 @@ module XDHqFAAS
 		self.serve(callback,userCallback,callbacks)
   end
   def XDHqFAAS::broadcastAction(action,id)
-	XDHqFAAS::lockOutputMutex() # '@outputMutex.synchronize {...}' does not work as '@outputMutex' is not the good one.
-	XDHqFAAS::writeSInt(-3)
-	XDHqFAAS::writeString(action)
-	XDHqFAAS::writeString(id)
-	XDHqFAAS::unlockOutputMutex()   
+		XDHqFAAS::lockOutputMutex() # '@outputMutex.synchronize {...}' does not work as '@outputMutex' is not the good one.
+		XDHqFAAS::writeSInt(-3)
+		XDHqFAAS::writeString(action)
+		XDHqFAAS::writeString(id)
+		XDHqFAAS::unlockOutputMutex()   
   end 
 	class DOM
 		def initialize(instance)
