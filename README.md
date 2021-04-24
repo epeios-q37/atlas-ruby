@@ -23,9 +23,9 @@
 
 ---
 
-## A GUI with *Ruby* in less then 10 minutes
+## A GUI with *Ruby* in a couple of minutes
 
-Click to see how to program this ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) with *Ruby* in less then 10 minutes:
+Click the animation to see a screencast of programming this ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) with *Ruby* in a matter of minutes:
 
 [![Building a GUI in with *Ruby* in less then 10 minutes](https://q37.info/s/qp4z37pg.gif)](https://q37.info/s/zgb4d9v3)
 
@@ -60,12 +60,12 @@ def acSubmit(userObject, dom, id)
  dom.focus("Input")
 end
 
-callbacks = {
+CALLBACKS = {
  "" => method(:acConnect),
  "Submit" => method(:acSubmit)
 }
 
-Atlas.launch(callbacks)
+Atlas.launch(CALLBACKS)
 ```
 
 ### See for yourself right now - it's quick and easy!
