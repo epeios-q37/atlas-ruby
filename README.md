@@ -10,13 +10,13 @@
 
 > The [*Atlas* toolkit](https://atlastk.org) is available for:
 > 
-> | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Language | *GitHub* repository | Online démonstrations
+> | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Language | [*Git*](https://en.wikipedia.org/wiki/Git) repositories | Online démonstrations
 > |-|-|-|:-:|
-> | ![Java](https://q37.info/s/sgb9nq7x.svg) | [*Java*](https://q37.info/s/qtnkp9w4)  |<https://github.com/epeios-q37/atlas-java> | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/3vwk3h3n) |
-> | ![Node.js](https://q37.info/s/b9ctj4bb.svg) | [*Node.js*](https://q37.info/s/3d7hr733) | <https://github.com/epeios-q37/atlas-node> | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/st7gccd4) |
-> | ![Perl](https://q37.info/s/v9qkzvhk.svg) | [*Perl*](https://q37.info/s/4nvmwjgg)  |<https://github.com/epeios-q37/atlas-perl> | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/h3h34zgq) |
-> | ![Python](https://q37.info/s/t4s3p4rk.svg) | [*Python*](https://q37.info/s/pd7j9k4r)  | <https://github.com/epeios-q37/atlas-python> | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/vwpsw73v) |
-> | ![Ruby](https://q37.info/s/ngxztq4t.svg) | [*Ruby*](https://q37.info/s/gkfj3zpz)  | <https://github.com/epeios-q37/atlas-ruby> | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/9thdtmjg) |
+> | ![Java](https://q37.info/s/sgb9nq7x.svg) | [*Java*](https://q37.info/s/qtnkp9w4)  | [*Framagit*](https://framagit.org/epeios-q37/atlas-java) [*GitHub*](https://github.com/epeios-q37/atlas-java) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/3vwk3h3n) |
+> | ![Node.js](https://q37.info/s/b9ctj4bb.svg) | [*Node.js*](https://q37.info/s/3d7hr733) | [*Framagit*](https://framagit.org/epeios-q37/atlas-node) [*GitHub*](https://github.com/epeios-q37/atlas-node) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/st7gccd4) |
+> | ![Perl](https://q37.info/s/v9qkzvhk.svg) | [*Perl*](https://q37.info/s/4nvmwjgg)  | [*Framagit*](https://framagit.org/epeios-q37/atlas-perl) [*GitHub*](https://github.com/epeios-q37/atlas-perl) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/h3h34zgq) |
+> | ![Python](https://q37.info/s/t4s3p4rk.svg) | [*Python*](https://q37.info/s/pd7j9k4r)  | [*Framagit*](https://framagit.org/epeios-q37/atlas-python) [*GitHub*](https://github.com/epeios-q37/atlas-python) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/vwpsw73v) |
+> | ![Ruby](https://q37.info/s/ngxztq4t.svg) | [*Ruby*](https://q37.info/s/gkfj3zpz)  | [*Framagit*](https://framagit.org/epeios-q37/atlas-ruby) [*GitHub*](https://github.com/epeios-q37/atlas-ruby) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/9thdtmjg) |
 
 
 
@@ -86,6 +86,8 @@ To see some examples, like the following [*TodoMVC*](http://todomvc.com/) applic
 #### With *Ruby* on your computer
 
 ```
+# You can replace 'github.com' with 'framagit.org'.
+# DON'T copy/paste this and above line!
 git clone https://github.com/epeios-q37/atlas-ruby
 cd atlas-ruby/examples
 ruby -I../atlastk Hello/Hello.rb
