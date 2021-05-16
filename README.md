@@ -35,7 +35,7 @@ Source code:
 
 ```ruby
 require 'Atlas'
-
+ 
 $BODY =
 <<~HEREDOC
 <fieldset>
@@ -47,24 +47,24 @@ $BODY =
  </fieldset>
 </fieldset>
 HEREDOC
-
+ 
 def acConnect(userObject, dom, id)
  dom.inner("", $BODY)
  dom.focus("Input")
 end
-
+ 
 def acSubmit(userObject, dom, id)
  name = dom.getValue("Input")
- dom.setValue("Output", "Hello, " + name + "!")
+ dom.begin("Output", "<div>Hello, " + name + "!</div>")
  dom.setValue("Input", "")
  dom.focus("Input")
 end
-
+ 
 CALLBACKS = {
  "" => method(:acConnect),
  "Submit" => method(:acSubmit)
 }
-
+ 
 Atlas.launch(CALLBACKS)
 ```
 
@@ -72,13 +72,15 @@ Atlas.launch(CALLBACKS)
 
 #### Online, with nothing to install
 
+To run above "Hello, World!" program directly in your browser, as seen in corresponding video, follow this link: <https://replit.com/@AtlasTK/hello-ruby>.
+
 Thanks to [*Replit*](https://q37.info/s/mxmgq3qm), an [online IDE](https://q37.info/s/zzkzbdw7), you can write and run programs using the *Atlas* toolkit directly in your web browser, without having to install *Ruby* on your computer [![About online demonstrations](https://img.shields.io/badge/about-online%20demonstrations-informational)](https://q37.info/s/sssznrb4).
 
-To see some examples, like the following [*TodoMVC*](http://todomvc.com/) application or the above ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) program, simply:
+To see more examples, like the following [*TodoMVC*](http://todomvc.com/), simply:
 - go [here](https://q37.info/s/9thdtmjg) (also accessible with the [![Run on Repl.it](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/9thdtmjg) button at the top of this page),
--  click on the green `run` button,
--  choose the demonstration to launch,
--  open the then displayed URL in a browser (should be clickable), 
+- click on the green `run` button,
+- choose the demonstration to launch,
+- open the then displayed URL in a browser (should be clickable), 
 - … and, as you wish, run your own tests directly in your browser, by modifying the code of the examples or by writing your own code.
 
 [![TodoMVC](https://q37.info/download/TodoMVC.gif "The TodoMVC application made with the Atlas toolkit")](https://q37.info/s/9thdtmjg)
