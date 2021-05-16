@@ -266,7 +266,7 @@ module XDHqFAAS
 
 			puts(url)
 			puts("".rjust(url.length,'^'))
-			puts("Open above URL in a web browser. Enjoy!\n")
+			puts("Open above URL in a web browser (click, right click or copy/paste). Enjoy!\n")
 			if (XDHqSHRD::isREPLit?())
 				system(@REPLit % [url])
 			elsif (XDHq::getEnv("ATK").upcase != "NONE")
