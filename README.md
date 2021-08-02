@@ -39,8 +39,8 @@ require 'Atlas'
 $BODY =
 <<~HEREDOC
 <fieldset>
- <input id="Input" data-xdh-onevent="Submit" value="World"/>
- <button data-xdh-onevent="Submit">Hello</button>
+ <input id="Input" xdh:onevent="Submit" value="World"/>
+ <button xdh:onevent="Submit">Hello</button>
  <hr/>
  <fieldset>
   <output id="Output">Greetings displayed here!</output>
