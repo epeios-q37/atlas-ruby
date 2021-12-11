@@ -2,22 +2,26 @@
 
 [![Run on Repl.it](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/9thdtmjg)  [![About online demonstrations](https://img.shields.io/badge/about-online%20demonstrations-informational)](https://q37.info/s/sssznrb4)
 
-[![Version 0.12](https://img.shields.io/static/v1.svg?&color=90b4ed&label=Version&message=0.12&style=for-the-badge)](http://github.com/epeios-q37/atlas-ruby/)
+[![Version 0.13](https://img.shields.io/static/v1.svg?&color=90b4ed&label=Version&message=0.13&style=for-the-badge)](http://github.com/epeios-q37/atlas-ruby/)
 [![license: MIT](https://img.shields.io/github/license/epeios-q37/atlas-ruby?color=yellow&style=for-the-badge)](https://github.com/epeios-q37/atlas-ruby/blob/master/LICENSE)
 [![Documentation](https://img.shields.io/static/v1?label=documentation&message=atlastk.org&color=ff69b4&style=for-the-badge)](https://atlastk.org)  
 
 
 
-> The [*Atlas* toolkit](https://atlastk.org) is available for:
-> 
-> | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Language | [*Git*](https://en.wikipedia.org/wiki/Git) repositories | Online démonstrations
-> |-|-|-|:-:|
-> | ![Java](https://q37.info/s/sgb9nq7x.svg) | [*Java*](https://q37.info/s/qtnkp9w4)  | [*Framagit*](https://framagit.org/epeios-q37/atlas-java) [*GitHub*](https://github.com/epeios-q37/atlas-java) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/3vwk3h3n) |
-> | ![Node.js](https://q37.info/s/b9ctj4bb.svg) | [*Node.js*](https://q37.info/s/3d7hr733) | [*Framagit*](https://framagit.org/epeios-q37/atlas-node) [*GitHub*](https://github.com/epeios-q37/atlas-node) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/st7gccd4) |
-> | ![Perl](https://q37.info/s/v9qkzvhk.svg) | [*Perl*](https://q37.info/s/4nvmwjgg)  | [*Framagit*](https://framagit.org/epeios-q37/atlas-perl) [*GitHub*](https://github.com/epeios-q37/atlas-perl) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/h3h34zgq) |
-> | ![Python](https://q37.info/s/t4s3p4rk.svg) | [*Python*](https://q37.info/s/pd7j9k4r)  | [*Framagit*](https://framagit.org/epeios-q37/atlas-python) [*GitHub*](https://github.com/epeios-q37/atlas-python) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/vwpsw73v) |
-> | ![Ruby](https://q37.info/s/ngxztq4t.svg) | [*Ruby*](https://q37.info/s/gkfj3zpz)  | [*Framagit*](https://framagit.org/epeios-q37/atlas-ruby) [*GitHub*](https://github.com/epeios-q37/atlas-ruby) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/9thdtmjg) |
+<!--
+Si la table ci-dessous est modifiée, alors modifier également (pages du site atlastk.org) :
+- la page 'Home' ;
+- la page 'Online demonstrations' ;
+-->
 
+> The [*Atlas* toolkit](https://atlastk.org) is available for:
+> | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Language | Online demonstrations | Repo. #1 | #2 | #3 |Stars
+> |-|-|:-:|:-:|:-:|:-:|:-:|
+> | ![Java](https://q37.info/s/sgb9nq7x.svg) | [*Java*](https://q37.info/s/qtnkp9w4)  | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/3vwk3h3n) | [*Framagit*](https://framagit.org/epeios-q37/atlas-java) | [*GitHub*](https://github.com/epeios-q37/atlas-java) | [*GitLab*](https://gitlab.com/epeios-q37/atlas-java) | [![Stars for atlas-java](https://img.shields.io/github/stars/epeios-q37/atlas-java.svg?label=)](https://github.com/epeios-q37/atlas-java/stargazers)
+> | ![Node.js](https://q37.info/s/b9ctj4bb.svg) | [*Node.js*](https://q37.info/s/3d7hr733) | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/st7gccd4) | [*Framagit*](https://framagit.org/epeios-q37/atlas-node) | [*GitHub*](https://github.com/epeios-q37/atlas-node) | [*GitLab*](https://gitlab.com/epeios-q37/atlas-node) | [![Stars for atlas-node](https://img.shields.io/github/stars/epeios-q37/atlas-node.svg?label=)](https://github.com/epeios-q37/atlas-node/stargazers)
+> | ![Perl](https://q37.info/s/v9qkzvhk.svg) | [*Perl*](https://q37.info/s/4nvmwjgg)  | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/h3h34zgq) | [*Framagit*](https://framagit.org/epeios-q37/atlas-perl) | [*GitHub*](https://github.com/epeios-q37/atlas-perl) | [*GitLab*](https://gitlab.com/epeios-q37/atlas-perl) | [![Stars for atlas-perl](https://img.shields.io/github/stars/epeios-q37/atlas-perl.svg?label=)](https://github.com/epeios-q37/atlas-perl/stargazers)
+> | ![Python](https://q37.info/s/t4s3p4rk.svg) | [*Python*](https://q37.info/s/pd7j9k4r)  | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/vwpsw73v) | [*Framagit*](https://framagit.org/epeios-q37/atlas-python) | [*GitHub*](https://github.com/epeios-q37/atlas-python)  | [*GitLab*](https://gitlab.com/epeios-q37/atlas-python) | [![Stars](https://img.shields.io/github/stars/epeios-q37/atlas-python.svg?label=)](https://github.com/epeios-q37/atlas-python/stargazers)
+> | ![Ruby](https://q37.info/s/ngxztq4t.svg) | [*Ruby*](https://q37.info/s/gkfj3zpz)  | [![Run on Replit](https://q37.info/s/kpm7xhfm.png)](https://q37.info/s/9thdtmjg) | [*Framagit*](https://framagit.org/epeios-q37/atlas-ruby) | [*GitHub*](https://github.com/epeios-q37/atlas-ruby) | [*GitLab*](https://gitlab.com/epeios-q37/atlas-ruby) | [![Stars for atlas-ruby](https://img.shields.io/github/stars/epeios-q37/atlas-ruby.svg?label=)](https://github.com/epeios-q37/atlas-ruby/stargazers)
 
 
 
@@ -25,7 +29,7 @@
 
 ## A GUI with *Ruby* in a couple of minutes
 
-Click the animation to see a screencast of programming this ["Hello, World!"](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) with *Ruby* in a matter of minutes:
+Click the animation to see a screencast of programming this ["Hello, World!" program](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) with *Ruby* in a matter of minutes:
 
 [![Building a GUI in with *Ruby* in less then 10 minutes](https://q37.info/s/qp4z37pg.gif)](https://q37.info/s/zgb4d9v3)
 

@@ -60,8 +60,8 @@ module Atlas
 		while true
 			action, id = dom.getAction()
 
-			if dom.isQuitting?
-				break
+			if action.empty? and XDHqSHRD::isDev?
+				dom.debugLog()
 			end
 
 			self.call_(callbacks[action], userObject, dom, id, action)
@@ -76,12 +76,6 @@ module Atlas
 
 	def Atlas::launch(callbacks,callback = -> () {},headContent="",dir="")
 		XDHq.launch(-> (userObject,callbacks,id) {self.cb(userObject,callbacks,id)},callback,callbacks,headContent,dir)
-=begin
-		while true
-			thread = Thread.new(new.call(),XDHq::DOM.new(),callbacks) do |userObject,dom,callbacks| thread(userObject, dom, callbacks) end
-			$threads << thread
-		end
-=end
 	end
 
 	def Atlas::broadcastAction(action, id="")

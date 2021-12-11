@@ -98,7 +98,7 @@ class Chatroom
 	end
 end
 
-def acConnect( chatroom, dom, id)
+def acConnect(chatroom, dom, id)
 	dom.inner("", readAsset("Main.html"))
 	dom.focus("Pseudo")
 	chatroom.displayMessages(dom)
