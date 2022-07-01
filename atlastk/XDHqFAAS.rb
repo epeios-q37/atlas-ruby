@@ -28,6 +28,8 @@ module XDHqFAAS
 	require 'socket'
 	require 'pp'
 
+	VERSION_ = "0.13.1"
+
 	@_readMutex_ = Mutex.new
 	# Staying on conditional variable, because a mutex
 	# can not be locked twice by same thread,
@@ -92,7 +94,7 @@ module XDHqFAAS
 	end
 
 	FAAS_PROTOCOL_LABEL_ = "4c837d30-2eb5-41af-9b3d-6c8bf01d8dbf"
-	FAAS_PROTOCOL_VERSION_ = "0"
+	FAAS_PROTOCOL_VERSION_ = "1"
 	MAIN_PROTOCOL_LABEL_ = "22bb5d73-924f-473f-a68a-14f41d8bfa83"
 	MAIN_PROTOCOL_VERSION_ = "0"
 	SCRIPTS_VERSION_ = "0"
@@ -100,6 +102,10 @@ module XDHqFAAS
 	FORBIDDEN_ID_ = -1
 	CREATION_ID_ = -2
 	CLOSING_ID_ = -3
+	HEAD_RETRIEVING_ID_ = -4
+
+	BROADCAST_ACTION_ID_ = -3
+	HEAD_SENDING_ID_ = -4
 
 	@pAddr = "faas.q37.info"
 	@pPort = 53700
@@ -256,7 +262,7 @@ module XDHqFAAS
 		@writeMutex.synchronize {
 			writeString(FAAS_PROTOCOL_LABEL_)
 			writeString(FAAS_PROTOCOL_VERSION_)
-			writeString("RBY")
+			writeString("RBY " + VERSION_)
 		}
 
 		error = getString()
@@ -297,7 +303,7 @@ module XDHqFAAS
 	def self.ignition
 		@writeMutex.synchronize {
 			writeString(@token)
-			writeString(@headContent)
+			# writeString(@headContent) # Dedicated request since FaaS protocol v1.
 			writeString(@wAddr)
 			writeString("")	# Currently not used ; for future use.
 		}
@@ -350,6 +356,11 @@ module XDHqFAAS
 					
 					@instances.delete(id)
 				end
+			elsif id == HEAD_RETRIEVING_ID_
+				@writeMutex.synchronize {
+					XDHqFAAS::writeSInt(HEAD_SENDING_ID_)
+					XDHqFAAS::writeString(@headContent)
+				}
 			elsif !@instances.has_key?(id)
 				report("Unknown instance of id '#{id}'!")
 				dismiss(id)
@@ -388,7 +399,7 @@ module XDHqFAAS
   end
   def XDHqFAAS::broadcastAction(action,id)
 		@writeMutex.synchronize {
-			XDHqFAAS::writeSInt(-3)
+			XDHqFAAS::writeSInt(BROADCAST_ACTION_ID_)
 			XDHqFAAS::writeString(action)
 			XDHqFAAS::writeString(id)
 	}
