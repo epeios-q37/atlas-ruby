@@ -105,6 +105,7 @@ class Notes
 
 	def acConnect(dom, id)
 		dom.inner("", readAsset("Main.html"))
+		dom.enableElement("XDHFullWidth")
 		displayList(dom)
 	end
 
